@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>URS-Resume Home</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f9ff;
+    }
+
+    header {
+      background-color: #b073cc;
+      color: white;
+      padding: 20px 40px;
+      text-align: center;
+      position: relative;
+    }
+
+    .sample-btn {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      background-color: white;
+      color: #b073cc;
+      border: 2px solid #b073cc;
+      padding: 10px 20px;
+      font-size: 0.9em;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .sample-btn:hover {
+      background-color: #b073cc;
+      color: white;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #b073cc;
+    }
+
+    input[type="file"] {
+      margin: 20px 0;
+      padding: 10px;
+    }
+
+    button {
+      background-color: #b073cc;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #a05cc6;
+    }
+
+    .output-box {
+      margin-top: 30px;
+      padding: 20px;
+      border: 1px dashed #ccc;
+      border-radius: 8px;
+      background-color: #f8faff;
+      color: #444;
+      display: none;
+      text-align: left;
+    }
+
+    .output-box h3 {
+      color: #b073cc;
+      margin-bottom: 10px;
+    }
+
+    .sample-resume {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #fff8fd;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .template-section {
+      max-width: 800px;
+      margin: 30px auto;
+      display: none;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .template-section h3 {
+      color: #b073cc;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .template-preview {
+      background-color: #f9f9f9;
+      padding: 15px;
+      border: 1px solid #ddd;
+      margin: 10px 0;
+      border-radius: 6px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to URS-Resume</h1>
+    <p>Your AI-Powered Resume Enhancer</p>
+    <button class="sample-btn" onclick="toggleTemplates()">View Sample Resumes</button>
+  </header>
+
+  <div class="container">
+    <h2>Upload Your Resume</h2>
+    <input type="file" id="resumeInput" accept=".pdf,.doc,.docx" />
+    <br />
+    <button onclick="checkResume()">Check My Resume</button>
+
+    <div id="outputBox" class="output-box">
+      <h3>Basic Tips for a Classy Resume:</h3>
+      <ul>
+        <li>✅ Keep it one page (max 2 if necessary)</li>
+        <li>✅ Use a clean and modern font like Calibri or Arial</li>
+        <li>✅ Highlight key achievements, not just responsibilities</li>
+        <li>✅ Keep formatting consistent: same bullet styles, fonts, alignments</li>
+        <li>✅ Use action verbs like “Led”, “Created”, “Improved”</li>
+        <li>✅ Avoid too many colors or graphics unless it’s for a creative field</li>
+      </ul>
+
+      <h3>Sample Resume Snippet:</h3>
+      <div class="sample-resume">
+        <strong>John Doe</strong><br>
+        Email: john.doe@email.com | Phone: +91-9876543210<br>
+        LinkedIn: linkedin.com/in/johndoe<br><br>
+
+        <strong>Objective</strong><br>
+        Enthusiastic software engineer with 3+ years of experience building scalable web applications. Looking to leverage skills in a fast-paced tech environment.<br><br>
+
+        <strong>Skills</strong><br>
+        - JavaScript, React, Node.js<br>
+        - Python, Django<br>
+        - Git, Docker, SQL<br><br>
+
+        <strong>Experience</strong><br>
+        Software Developer | ABC Technologies | 2021–Present<br>
+        - Developed a customer dashboard that reduced support tickets by 30%<br>
+        - Improved app load time by 40% through optimized React code<br><br>
+
+        <strong>Education</strong><br>
+        B.Tech in Computer Science – XYZ University, 2020
+      </div>
+    </div>
+  </div>
+
+  <div id="templateSection" class="template-section">
+    <h3>Sample Resume Templates</h3>
+
+    <div class="template-preview">
+      <strong>Modern Developer</strong><br>
+      - One page<br>
+      - Light gray headings<br>
+      - Left-aligned contact section<br>
+      - Clean sections for Projects, Experience, Skills
+    </div>
+
+    <div class="template-preview">
+      <strong>Minimalist Designer</strong><br>
+      - Monospace font<br>
+      - Emphasis on portfolio<br>
+      - Icon-based contact details<br>
+      - White background with a soft border
+    </div>
+
+    <div class="template-preview">
+      <strong>Professional Corporate</strong><br>
+      - Two-column layout<br>
+      - Bullet-focused accomplishments<br>
+      - Right column for skills and tools<br>
+      - Serif heading fonts, clean dividers
+    </div>
+  </div>
+
+  <script>
+    function checkResume() {
+      const fileInput = document.getElementById('resumeInput');
+      const outputBox = document.getElementById('outputBox');
+  
+      if (fileInput.files.length === 0) {
+        alert("Please upload a resume file before proceeding.");
+        return;
+      }
+  
+      outputBox.style.display = "block";
+    }
+  
+    function toggleTemplates() {
+      const section = document.getElementById('templateSection');
+  
+      if (section.style.display === "block") {
+        section.style.display = "none";
+      } else {
+        section.style.display = "block";
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  </script>
+  
+
+</body>
+</html>

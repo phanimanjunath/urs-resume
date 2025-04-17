@@ -1,0 +1,140 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEDITRUST</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+        }
+
+        #splash-screen {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #b073cc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            color: white;
+            text-align: center;
+            animation: fadeout 5s forwards;
+        }
+
+        @keyframes fadeout {
+            0%, 80% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        #splash-screen h1 {
+            font-size: 3em;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        #login-page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #eaf2fb;
+            z-index: 999;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 60px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .login-container h2 {
+            margin-bottom: 30px;
+            font-size: 2em;
+            color: #b073cc;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 1.1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .login-container button {
+            padding: 15px;
+            background-color: #b073cc;
+            color: white;
+            border: none;
+            font-size: 1.1em;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .login-container button:hover {
+            background-color: #b073cc;
+        }
+
+        .note {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <h1>WELCOME TO URS-RESUME</h1>
+    </div>
+
+    <!-- Login Page -->
+    <div id="login-page">
+        <div class="login-container">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Enter Username">
+            <input type="password" id="password" placeholder="Enter Password">
+            <button onclick="login()">Login</button>
+            <P class="note">Note: Enter a random username</P>
+            <p class="note">Note: Default password is 123</p>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(function() {
+            document.getElementById('splash-screen').style.display = 'none';
+        }, 5000);
+
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username && password === '123') {
+                window.location.href = '2.html';
+            } else {
+                alert('Invalid username or password. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>
